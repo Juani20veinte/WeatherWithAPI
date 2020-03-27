@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>App clima</title>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">App Clima</div>
+    </ons-toolbar>
+    <section class="section">
+      <div class="row mt-4 mb-4 mr-3 ml-3">
+        <div class="col-10 col-sm-12 col-md-10 col-lg-9 col-xl-10">
+          <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-lg">Ciudad: </span>
+            </div>
+            <input type="text" id="entrada_ciudad"class="form-control">
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-2 col-lg-3 col-xl-2 mt-sm-4 mt-md-0">
+          <button id="btn_clima" type="button" class= "btn btn-dark btn-block btn-lg">Ver clima</button>
+        </div>
+        <div class="row mt-4 mb-4 mr-3 ml-3"id="resultados">
+        </div>
+      </div>
+    </section>
+    <div class="row mt-4 mb-4 mr-10 ml-5">
+    <section class="section" id="resultado"></section>
+    </div>
+  </ons-page>
+  <script src="funcion.js"></script>
+</body>
+</html>
