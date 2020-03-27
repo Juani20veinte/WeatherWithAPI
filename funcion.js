@@ -39,7 +39,7 @@ function respuestaFormato(data){
   <p><strong>Presion: </strong>${data.main.pressure} mb</p>
   <p><strong>Viento: </strong>${data.wind.speed} m/s</p>
   <p><strong>${condiciones}</strong></p>
-  <p>${icono}</p>`;
+  <img src="http://openweathermap.org/img/w/${icono}.png"alt="clima" style="width:75px;height:75px;">`;
 
   return(salida);
 }
