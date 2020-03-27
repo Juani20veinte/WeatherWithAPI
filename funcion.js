@@ -16,39 +16,30 @@ btn_clima.onclick=function(){
 
 function respuestaFormato(data){
   let condiciones="";
+  let icono="";
   if(data.weather.length>1){
     for(var i=0;i<data.weather.length;i++){
       condiciones+= data.weather[i].description;
+      icono+= data.weather[i].icon;
       if(i!=(data.weather.length-1)){
         condiciones+=" y ";
       }
     }
   }else{
     condiciones+=data.weather[0].description;
+    icono+= data.weather[0].icon;
   }
-  const gif = `https://api.tenor.com/v1/search?key=L7STWEJSSYWS&q=${condiciones}`;
-  console.log(gif);
-  fetch(gif).then((result) => {
-
-    var result_json = result.json();
-    result_json.then((json) => {
-      var results = json.results;
-      results.forEach((item, i) => {
-        var url_tenor = item.url;
-        var url_gif = item.media[0].gif.url;
-        console.log(url_gif);
-      });
-    });
-  })
 
   let salida = `<p><strong>Condiciones actuales en ${data.name}</strong></p>
   <p><strong>Temperatura: </strong>${Math.round(data.main.temp)} ºc</p>
-  <p><strong>Sensasion termica: </strong>${data.main.feels_like} ºc</p>
+  <p><strong>Sensasion termica: </strong>${Math.round(data.main.feels_like)} ºc</p>
   <p><strong>Temperatura minima : </strong>${Math.round(data.main.temp_min)} ºc</p>
   <p><strong>Temperatura maxima : </strong>${Math.round(data.main.temp_max)} ºc</p>
   <p><strong>Humedad: </strong>${data.main.humidity} %</p>
   <p><strong>Presion: </strong>${data.main.pressure} mb</p>
   <p><strong>Viento: </strong>${data.wind.speed} m/s</p>
-  <p><strong>${condiciones}</strong></p>`;
+  <p><strong>${condiciones}</strong></p>
+  <p>${icono}</p>`;
+
   return(salida);
 }
